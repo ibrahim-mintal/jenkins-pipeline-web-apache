@@ -1,5 +1,5 @@
 # Ignore portfolio directory and its contents
-portfolio/
+#portfolio/
 
 # IDE and editor files
 .vscode/
