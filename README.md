@@ -19,27 +19,22 @@ jenkins-pipeline-web-apache/
 ├── ansible-playbook.yml     # Ansible playbook for deployment
 ├── Dockerfile              # Docker container configuration
 ├── README.md              # This file
-└── website/               # Web application files
-    ├── index.html        # Main HTML page
-    ├── config.rb         # Compass/Sass configuration
-    ├── css/              # Compiled CSS stylesheets
-    ├── sass/             # Sass source files
-    ├── js/               # JavaScript files
-    ├── img/              # Images and icons
-    ├── content/          # Additional content (videos, images)
-    ├── fonts/            # Font files
-    └── php/              # PHP scripts (contact forms)
+└── portfolio/             # Portfolio website files
+    ├── Manus_Portfolio.html  # Main portfolio HTML page
+    ├── enhanced_style.css    # CSS styling for the portfolio
+    └── profile.png          # Profile image
 ```
 
-## Website Features
+## Portfolio Website Features
 
-The web application is a responsive "Coming Soon" page with:
-- Modern HTML5/CSS3 design
-- Bootstrap framework
-- Animated elements and transitions
-- Contact form functionality
-- Mobile-responsive design
-- Google Analytics integration
+The portfolio website includes:
+- Professional responsive design with modern CSS3
+- Interactive navigation and smooth scrolling
+- Skills showcase with categorized technical expertise
+- Project portfolio with detailed descriptions
+- Contact form with validation
+- Mobile-responsive layout
+- Professional animations and transitions
 
 ## Prerequisites
 
@@ -116,13 +111,15 @@ The Jenkins pipeline consists of two main stages:
 
 ## Customization
 
-### Changing the Website
+### Changing the Portfolio Website
 
-To modify the website content:
-1. Edit files in the `website/` directory
-2. The main page is `website/index.html`
-3. Styles can be modified in `website/sass/` or `website/css/`
-4. JavaScript functionality is in `website/js/`
+To modify the portfolio content:
+1. Edit files in the `portfolio/` directory
+2. The main page is `portfolio/Manus_Portfolio.html`
+3. Styles can be modified in `portfolio/enhanced_style.css`
+4. Replace `portfolio/profile.png` with your own profile image
+
+**Important Note**: Apache HTTP server serves `index.html` as the default page. To make your portfolio the default page, rename `Manus_Portfolio.html` to `index.html` or configure Apache to use a different default document.
 
 ### Modifying Docker Configuration
 
@@ -151,6 +148,8 @@ The pipeline uses the following environment variables:
 1. **Docker login fails**: Check Jenkins credentials configuration
 2. **Port 5000 already in use**: Stop other containers using port 5000 or modify the port mapping
 3. **Permission denied**: Ensure Docker daemon is running and user has proper permissions
+4. **"It works!" page instead of portfolio**: Apache serves `index.html` by default. Rename your portfolio HTML file to `index.html` or configure the default document in Apache
+5. **Missing CSS styling**: Ensure `enhanced_style.css` is present in the portfolio directory
 
 ### Logs and Debugging
 
@@ -182,9 +181,18 @@ docker ps
 
 This project is for educational and demonstration purposes.
 
+## Apache Server Configuration
+
+The Apache HTTP server in the Docker container:
+- Default document root: `/usr/local/apache2/htdocs`
+- Default index file: `index.html`
+- To serve your portfolio as the default page, either:
+  - Rename `Manus_Portfolio.html` to `index.html`
+  - Or modify Apache configuration to set `DirectoryIndex Manus_Portfolio.html`
+
 ## Author
 
-John Bedeir - [johnydev.com](https://johnydev.com)
+Ibrahim Ahmed Mintal - DevOps Engineer & Solutions Architect
 
 ## Support
 
