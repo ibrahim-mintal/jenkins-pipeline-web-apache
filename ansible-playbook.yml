@@ -12,15 +12,15 @@
       ignore_errors: yes
 
     - name: remove web-image
-      command: docker rmi ibrahimmintal/apache_web_app:v1.0
+      command: docker rmi ibrahimmintal/portfolio:v1.0
       ignore_errors: yes
 
     - name: build docker image using the Dockerfile
-      command: docker build -t ibrahimmintal/apache_web_app:v1.0 .
+      command: docker build -t ibrahimmintal/portfolio:v1.0 .
 
     - name: Push Image to dockerhub
-      command: docker push ibrahimmintal/apache_web_app:v1.0
+      command: docker push ibrahimmintal/portfolio:v1.0
 
     - name: run container
-      command: docker run -d --name web-container -p 5000:80 ibrahimmintal/apache_web_app:v1.0
+      command: docker run -d --name web-container -p 5000:80 ibrahimmintal/portfolio:v1.0
 
