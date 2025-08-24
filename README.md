@@ -20,9 +20,6 @@ jenkins-pipeline-web-apache/
 ├── Dockerfile              # Docker container configuration
 ├── README.md              # This file
 └── portfolio/             # Portfolio website files
-    ├── Manus_Portfolio.html  # Main portfolio HTML page
-    ├── enhanced_style.css    # CSS styling for the portfolio
-    └── profile.png          # Profile image
 ```
 
 ## Portfolio Website Features
@@ -119,7 +116,7 @@ To modify the portfolio content:
 3. Styles can be modified in `portfolio/enhanced_style.css`
 4. Replace `portfolio/profile.png` with your own profile image
 
-**Important Note**: Apache HTTP server serves `index.html` as the default page. To make your portfolio the default page, rename `Manus_Portfolio.html` to `index.html` or configure Apache to use a different default document.
+**Important Note**: Apache HTTP server serves `index.html` as the default page. To make your portfolio the default page, rename `Your_Portfolio.html` to `index.html` or configure Apache to use a different default document.
 
 ### Modifying Docker Configuration
 
@@ -148,8 +145,7 @@ The pipeline uses the following environment variables:
 1. **Docker login fails**: Check Jenkins credentials configuration
 2. **Port 5000 already in use**: Stop other containers using port 5000 or modify the port mapping
 3. **Permission denied**: Ensure Docker daemon is running and user has proper permissions
-4. **"It works!" page instead of portfolio**: Apache serves `index.html` by default. Rename your portfolio HTML file to `index.html` or configure the default document in Apache
-5. **Missing CSS styling**: Ensure `enhanced_style.css` is present in the portfolio directory
+4. **"It works!" page instead of portfolio**: Apache serves `index.html` by default. Rename your portfolio HTML file to `index.html` or configure the default document in Apache.
 
 ### Logs and Debugging
 
@@ -176,19 +172,6 @@ docker ps
 3. Make your changes
 4. Test the pipeline
 5. Submit a pull request
-
-## License
-
-This project is for educational and demonstration purposes.
-
-## Apache Server Configuration
-
-The Apache HTTP server in the Docker container:
-- Default document root: `/usr/local/apache2/htdocs`
-- Default index file: `index.html`
-- To serve your portfolio as the default page, either:
-  - Rename `Manus_Portfolio.html` to `index.html`
-  - Or modify Apache configuration to set `DirectoryIndex Manus_Portfolio.html`
 
 ## Author
 
