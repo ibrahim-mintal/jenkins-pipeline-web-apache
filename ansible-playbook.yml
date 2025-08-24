@@ -11,7 +11,7 @@
       command: docker rm web-container
       ignore_errors: yes
 
-    - name: remove comingsoon-image
+    - name: remove web-image
       command: docker rmi ibrahimmintal/apache_web_app:v1.0
       ignore_errors: yes
 
